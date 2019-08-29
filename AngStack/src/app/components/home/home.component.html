@@ -1,0 +1,27 @@
+<p>
+
+	<input type="text" [formControl]="name"> {{name.value}}
+</p>
+<div *ngIf="name.invalid && (name.dirty || name.touched)"
+	class="alert alert-danger">
+
+	<div *ngIf="name.errors.required">Name is required.</div>
+	<div *ngIf="name.errors.minlength">Name must be at least 4
+		characters long.</div>
+	<div *ngIf="name.errors.forbiddenName">Name cannot be Bob.</div>
+</div>
+<form [formGroup]="profileForm">
+		<input type="text" formControlName="firstName">
+		<div formGroupName="address">
+			<input type="text" formControlName="city">
+		</div>
+</form>
+<form [formGroup]="contactForm">
+	<input type="text" formControlName="mobile">
+	<input type="text" formControlName="land">
+</form>
+
+{{ profileForm.value | json }}<br>
+{{ contactForm.value | json }}<br>
+
+<button (click)="onClickMe()">ssa</button>
