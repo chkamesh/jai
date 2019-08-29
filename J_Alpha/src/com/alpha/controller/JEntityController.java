@@ -19,7 +19,7 @@ public class JEntityController {
 	
 	@RequestMapping("/")
     public String welcome() {//Welcome page, non-rest
-		System.out.println("weelcome");
+		System.out.println("welcome");
         return "Welcome to RestTemplate Example.";
     }
 	
