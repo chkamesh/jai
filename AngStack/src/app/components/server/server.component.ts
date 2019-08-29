@@ -12,7 +12,7 @@ export class ServerComponent implements OnInit {
   ngOnInit() {
   }
   public back() {
-
+    console.log('back ');
   }
 
 }
