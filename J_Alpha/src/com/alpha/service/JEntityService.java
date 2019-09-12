@@ -18,7 +18,7 @@ public class JEntityService {
 	@Transactional
 	
 	public List<JEntity> getAll(){
-		return (List<JEntity>) jEntityRepository.findById(1);
+		return (List<JEntity>) jEntityRepository.findAll();
 	}
 	
 	
