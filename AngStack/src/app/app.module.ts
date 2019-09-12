@@ -2,7 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {ExampleAppComponent} from './example-app/example-app.component';
 import {ReactiveFormsModule, FormsModule, FormGroup} from '@angular/forms';
 import { UserComponent } from './user/user.component';
 import { ServerComponent } from './components/server/server.component';
@@ -18,14 +17,15 @@ import { EntityCreateComponent } from './components/entity/entity-create/entity-
 import { EntityUpdateComponent } from './components/entity/entity-update/entity-update.component';
 import { EntityDeleteComponent } from './components/entity/entity-delete/entity-delete.component';
 import { PropertyCreateComponent } from './components/property/property-create/property-create.component';
-import {} from './serv';
-import { MessageComponent } from './components/message/message.component'
+import {LogService} from './service/log.service';
+import { MessageComponent } from './components/message/message.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ExampleAppComponent,
     UserComponent,
     ServerComponent,
     HomeComponent,
@@ -39,15 +39,17 @@ import { MessageComponent } from './components/message/message.component'
     EntityUpdateComponent,
     EntityDeleteComponent,
     PropertyCreateComponent,
-    MessageComponent
+    MessageComponent,
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [LoggerService],
+  providers: [LogService],
   bootstrap: [AppComponent],
   exports: [EntityComponent, PropertyComponent, DataTypeComponent, EntityCreateComponent, EntityUpdateComponent,
      EntityDeleteComponent, PropertyCreateComponent, MessageComponent]

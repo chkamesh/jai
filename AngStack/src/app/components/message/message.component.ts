@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from '../../service/message.service';
+import { LogService } from '../../service/log.service';
 
 @Component({
-  selector: 'app-messages',
-  templateUrl: './messages.component.html',
-  styleUrls: ['./messages.component.css']
+  selector: 'app-message',
+  templateUrl: './message.component.html',
+  styleUrls: ['./message.component.css']
 })
-export class MessagesComponent implements OnInit {
+export class MessageComponent implements OnInit {
+  message:string="";
 
-  constructor(public messageService: MessageService) {}
+  constructor(public logService: LogService) {}
 
   ngOnInit() {
   }
