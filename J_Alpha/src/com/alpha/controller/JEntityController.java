@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alpha.db.JEntity;
 import com.alpha.service.JEntityService;
 //
+
 @RestController
 public class JEntityController {
 
