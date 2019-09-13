@@ -21,5 +21,9 @@ public class JEntityService {
 		return (List<JEntity>) jEntityRepository.findAll();
 	}
 	
+	public List<JEntity> getEntity(long id){
+		return (List<JEntity>) jEntityRepository.findById(id);
+	}
+	
 	
 }

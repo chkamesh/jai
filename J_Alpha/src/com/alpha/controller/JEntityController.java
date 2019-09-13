@@ -3,6 +3,7 @@ package com.alpha.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +28,11 @@ public class JEntityController {
 	public List<JEntity> getAll(){
 		System.out.println("JEntity Controller getAll");
 		return jEntityService.getAll();
+	}
+	@RequestMapping(value="/jentity/{id}",method=RequestMethod.GET)
+	public List<JEntity> getEntity(@PathVariable("id")long id){
+		System.out.println("JEntity Controller getEntity");
+		return jEntityService.getEntity(id);
 	}
 	
 }

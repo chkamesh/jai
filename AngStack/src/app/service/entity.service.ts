@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { Entity } from '../interfaces/entity';
 
 
 @Injectable({
@@ -13,6 +14,7 @@ export class EntityService {
   constructor(private http: HttpClient) { }
 
   public getEntities() {
-    return this.http.get(this.baseUrl);
+    console.log(this.baseUrl);
+    return this.http.get<Entity>(this.baseUrl);
   }
 }

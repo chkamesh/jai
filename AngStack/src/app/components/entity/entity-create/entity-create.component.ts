@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { LogService } from 'src/app/service/log.service';
 import { EntityService } from 'src/app/service/entity.service';
+import { Entity } from 'src/app/interfaces/entity';
 
 
 @Component({
@@ -28,8 +29,13 @@ export class EntityCreateComponent implements OnInit {
     console.log('init');
   }
   save() {
-    this.entityService.getEntities().subscribe((date:))
-    this.logService.add(JSON.stringify());
-    this.logService.add(JSON.stringify(this.entityForm.getRawValue()));
+    this.entityService.getEntities().subscribe((data: Entity) =>   {
+    // this.entityForm.entDesc:  data['entName'];
+    //  textfile:  data['entDesc']
+      this.logService.add(data['entName']);
+  });
+    //0 this.entityForm.setValue
+    // this.logService.add(JSON.stringify());
+    // this.logService.add(JSON.stringify(this.entityForm.getRawValue()));
   }
 }
