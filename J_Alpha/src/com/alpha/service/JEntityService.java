@@ -1,6 +1,7 @@
 package com.alpha.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,13 +17,15 @@ public class JEntityService {
 	JEntityRepository<JEntity> jEntityRepository;
 	
 	@Transactional
-	
 	public List<JEntity> getAll(){
 		return (List<JEntity>) jEntityRepository.findAll();
 	}
 	
-	public List<JEntity> getEntity(long id){
-		return (List<JEntity>) jEntityRepository.findById(id);
+	@Transactional
+	public JEntity getEntity(int id){
+		Integer ids=id;
+		return (((Optional<JEntity>) jEntityRepository.findById(ids)).isPresent()==true)?
+				(((Optional<JEntity>) jEntityRepository.findById(ids)).get()):null;
 	}
 	
 	

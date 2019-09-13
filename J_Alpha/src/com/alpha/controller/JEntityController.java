@@ -30,7 +30,7 @@ public class JEntityController {
 		return jEntityService.getAll();
 	}
 	@RequestMapping(value="/jentity/{id}",method=RequestMethod.GET)
-	public List<JEntity> getEntity(@PathVariable("id")long id){
+	public JEntity getEntity(@PathVariable("id")int id){
 		System.out.println("JEntity Controller getEntity");
 		return jEntityService.getEntity(id);
 	}
