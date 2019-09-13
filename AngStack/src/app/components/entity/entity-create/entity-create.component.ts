@@ -12,9 +12,11 @@ import { Entity } from 'src/app/interfaces/entity';
 })
 export class EntityCreateComponent implements OnInit {
   entityForm = new FormGroup({
-    entityName: new FormControl(''),
-    entityDesc: new FormControl(''),
-    isMaster: new FormControl(false),
+    id: new FormControl(''),
+    entId: new FormControl(''),
+    entName: new FormControl(''),
+    entDesc: new FormControl(''),
+    master: new FormControl(false),
     viewName: new FormControl('..')
   });
 
@@ -28,14 +30,23 @@ export class EntityCreateComponent implements OnInit {
   ngOnInit() {
     console.log('init');
   }
-  save() {
-    this.entityService.getEntities().subscribe((data: Entity) =>   {
-    // this.entityForm.entDesc:  data['entName'];
-    //  textfile:  data['entDesc']
+  retrive() {
+    this.logService.add(this.entityForm.controls['id'].value);
+    this.entityService.getEntities(this.entityForm.controls['id'].value).subscribe((data: Entity) => {
+      this.entityForm.patchValue(data);
+      //  textfile:  data['entDesc']
+      this.logService.add(JSON.stringify(data));
       this.logService.add(data['entName']);
-  });
-    //0 this.entityForm.setValue
-    // this.logService.add(JSON.stringify());
-    // this.logService.add(JSON.stringify(this.entityForm.getRawValue()));
+    });
+  }
+
+  save() {
+    this.logService.add(JSON.stringify(this.entityForm.value));
+    this.entityService.saveEntitiy(this.entityForm.value).subscribe((data: Entity) => {
+      this.entityForm.patchValue(data);
+      //  textfile:  data['entDesc']
+      this.logService.add(JSON.stringify(data));
+      this.logService.add(data['entName']);
+    });
   }
 }

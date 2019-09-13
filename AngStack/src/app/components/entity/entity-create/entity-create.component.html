@@ -1,15 +1,23 @@
 <div [formGroup]="entityForm">
+  <label>
+  id:
+   <input type="text" formControlName="id">
+   </label><br>
+   <label>
+   Entity id:
+   <input type="text" formControlName="entId">
+   </label><br>
  <label>
    Entity Name:
-   <input type="text" formControlName="entityName">
+   <input type="text" formControlName="entName">
    </label><br>
 <label>
   Entity Desc:
-  <input type="text" formControlName="entityDesc">
+  <input type="text" formControlName="entDesc">
   </label><br>
 <label>
     Is Master:
-    <input type="text" formControlName="isMaster">
+    <input type="text" formControlName="master">
     <!-- <select formControlName="isMaster">
       <option value="select">Select</option>
       <option value="true">True</option>
@@ -22,6 +30,7 @@
     Entity Name:
     <input type="text" formControlName="viewName">
     </label><br>
+    <button (click)="retrive()">Get</button>
     <button (click)="save()">save</button>
 </div>
 <!-- {{ entityForm.value | json }}<br> -->

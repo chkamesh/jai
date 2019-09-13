@@ -13,8 +13,13 @@ export class EntityService {
 
   constructor(private http: HttpClient) { }
 
-  public getEntities() {
+  public getEntities(id: string) {
     console.log(this.baseUrl);
-    return this.http.get<Entity>(this.baseUrl);
+    return this.http.get<Entity>(this.baseUrl + "/" + id);
+  }
+
+  public saveEntitiy(entity: Entity) {
+    console.log(this.baseUrl);
+    return this.http.post<Entity>(this.baseUrl, entity);
   }
 }

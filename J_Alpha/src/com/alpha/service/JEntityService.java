@@ -28,5 +28,13 @@ public class JEntityService {
 				(((Optional<JEntity>) jEntityRepository.findById(ids)).get()):null;
 	}
 	
+	public JEntity saveEntity(JEntity entity){
+		jEntityRepository.save(entity);
+		return entity;
+	}
 	
+	public JEntity deleteEntity(JEntity entity){
+		jEntityRepository.delete(entity);
+		return entity;
+	}
 }
